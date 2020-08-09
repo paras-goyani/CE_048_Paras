@@ -1,0 +1,8 @@
+commands for TASK2:
+
+# create netmodule file
+	csc /t:module addition.cs
+	csc /t:module multiplication.cs
+
+# combine netmodule in single dll file.
+	csc /t:library /addmodule:addition.netmodule /addmodule:multiplication.netmodule /out:calc.dll
