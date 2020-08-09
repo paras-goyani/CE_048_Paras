@@ -1,0 +1,21 @@
+Commands for LAB3 Task!
+
+# create strongly named key file:
+		sn -k mykey.snk
+	
+# create strongly named assembly Dll file using key file
+		csc /t:library /keyfile:mykey.snk Calc.cs
+	
+# upload dll file on GAC and check assembly version
+		gacutil -i Calc.dll
+		ildasm Calc.dll
+
+# for creation of exe file for Calc  => calc_driver.cs
+	$ csc /t:exe /r:Calc.dll driver.cs 
+
+# new Verison of calc.cs => Calc_new.cs
+		csc /t:library /keyfile:mykey.snk /out:Calc.dll Calc_new.cs
+	
+# to get public key token:
+		sn -T Calc.dll
+	
