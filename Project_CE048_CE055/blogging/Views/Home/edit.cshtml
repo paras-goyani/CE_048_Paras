@@ -1,0 +1,54 @@
+﻿@model story
+
+
+@{
+    ViewData["Title"] = "edit";
+}
+
+
+    <div class="container">
+        <h3>Edit Blog</h3>
+        <div class="row">
+            <form action="/home/edit/@Model.Id" method="POST" class="col s12">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="row">
+                    <div class="input-field">
+                        <input type="text" id="title" name="title" value="@Model.title">
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <select asp-for="status" id="status" name="status">
+                            @if (Model.status == 0)
+                            {
+                                <option value="0" selected>Public</option>
+                                <option value="1">Private</option>
+                            }
+                            else
+                            {
+                                <option value="1" selected>Private</option>
+                                <option value="0">Public</option>
+                            }
+
+
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <h5>Edit your Blog:</h5>
+                        <textarea id="body" name="body">@Model.body</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <input type="submit" value="save" class="btn">
+                    <a href="/home/mystory" class="btn orange">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>

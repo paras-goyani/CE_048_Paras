@@ -1,0 +1,46 @@
+﻿
+
+@{
+    ViewData["Title"] = "index";
+}
+
+
+<div class="container">
+    <h1>All Blog</h1>
+    <div class="row">
+
+        @foreach (var s in ViewBag.stories)
+        {
+            @foreach (var s1 in s.stories)
+            {
+                if (s1.status == 0)
+                { 
+                    <div class="col s12 m6 l4" id="card-container">
+                        <div class="card">
+                            <div class="card-image center-align">
+                                @s.email
+                            </div>
+
+                            <div class="card-content center-align">
+                                <h5>@s1.title</h5>
+                                <p class="body-change-index">@s1.body...</p>
+                                <br>
+                                <div class="chip">
+                                    <input type="text" name="email" value="@s.email" hidden />
+                                    <div class="chip">
+                                        <img src="~/images/@s.photopath" alt="">
+                                        <a href="/home/show_allstory_of_perticular_user/@s.email">@s.firstname @s.lastname</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-action center-align">
+                                <a href="/home/show/@s1.Id" class="btn blue">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+</div>

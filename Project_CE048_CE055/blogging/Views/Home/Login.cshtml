@@ -1,0 +1,23 @@
+﻿@model Users
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+<div class="login-clean" style="height: 100vh;">
+    <form method="post" asp-action="login" asp-controller="home" style="margin-top: 80px;" id="loginform">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+        <div class="form-group"><input class="form-control" type="email" asp-for="email" placeholder="Email"></div>
+        <div class="form-group"><input class="form-control" type="password" asp-for="password" placeholder="Password"></div>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+    </form>
+</div>
+
+@if (ViewBag.error == "0")
+{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        swal("Invalid email or password","","error");
+    </script>
+}

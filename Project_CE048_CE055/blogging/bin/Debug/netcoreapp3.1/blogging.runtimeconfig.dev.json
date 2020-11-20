@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\rajka\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\rajka\\.nuget\\packages"
+    ]
+  }
+}

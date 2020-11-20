@@ -1,0 +1,69 @@
+﻿@model Users
+    <div class="container">
+        <h2>Welcome @Model.firstname </h2>
+
+        @if (ViewBag.allstories != null)
+        {
+            <h5>
+                Here are your Blog
+            </h5>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var story in ViewBag.allstories)
+                    {
+                        @if (Model.email == story.userId)
+                        {
+                            <tr>
+                                <td><a href="/home/show/@story.Id">@story.title</a></td>
+                                <td>@story.createdat</td>
+                                <td>
+
+                                    @if (story.status == 0)
+                                    {
+                                        <span class="dash-status">
+                                            Public
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="dash-status">
+                                            Private
+                                        </span>
+
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/home/edit/@story.Id" class="btn btn-float">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="/home/delete/@story.Id" method="POST" id="delete-form">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h5>
+                You have not created any story
+            </h5>
+           
+        }
+
+    </div>
+

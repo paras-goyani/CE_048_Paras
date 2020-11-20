@@ -1,0 +1,51 @@
+﻿@model story
+
+@{
+    ViewData["Title"] = "create";
+}
+
+    <div class="fixed-action-btn">
+        <a href="/stories/add" class="btn-floating btn-large waves-effect waves-light red">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+    <div class="container">
+        <h3>Create Blog</h3>
+        <div class="row">
+            <form asp-action="create" asp-controller="home" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field">
+                        <input type="text" id="title" asp-for="title" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        
+                        <select asp-for="status" id="status" name="status">
+                            <option value="0">Public</option>
+                            <option value="1">Private</option>
+
+                        </select>
+
+                        <label for="status">Status</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <h5>Write your Blog:</h5>
+                        <textarea id="body" asp-for="body" name="body"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn">Save</button>
+                    
+                    <a href="/home/mystory" class="btn orange">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
